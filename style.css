@@ -1,0 +1,194 @@
+/* 螢光筆效果 */
+.highlight-hover {
+    position: relative;
+    display: inline-block;
+}
+
+.highlight-hover::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 8px;
+    /* 螢光筆效果的粗度 */
+    background-color: rgba(255, 255, 0, 0.8);
+    /* 螢光筆顏色 */
+    transition: width 0.3s ease, left 0.3s ease;
+    z-index: -1;
+    /* 將螢光條放在文字下層 */
+}
+
+.highlight-hover:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+
+
+
+.thick-line {
+    border: 30px solid #000;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+
+
+.container-image:hover .image {
+    transform: translateY(-60px);
+
+    /* 當滑鼠移到圖片時，圖片往上滑動 */
+}
+
+.overlay {
+    position: absolute;
+    top: 10;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 半透明背景 */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    /* transform: translateY(-10px); */
+}
+
+.container-image:hover:hover .overlay {
+    opacity: 2;
+    /* 當滑鼠移到圖片時，顯示文字 */
+}
+
+
+/* css美化 */
+
+
+/* 重新定義背景色和文字色 */
+body {
+    background-color: #f5f5f5;
+    /* 淺灰背景 */
+    color: #333;
+    /* 深灰文字色 */
+    font-family: 'Roboto', sans-serif;
+}
+
+/* 導航欄 */
+.navbar {
+    background-color: #ebbf0fed;
+    /* 暗灰色 */
+}
+
+.navbar-brand,
+.nav-link {
+    color: #ffffff !important;
+    /* 白色文字 */
+}
+
+.nav-link:hover {
+    color: #f1a44e !important;
+    /* 橙色 */
+}
+
+/* 文字區塊 */
+h1,
+h2,
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+}
+
+/* 滑動圖像容器 */
+.container-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex
+}
+
+.container-image img {
+    width: 400px;
+    /* 設定圖片寬度為400px */
+    height: 300px;
+    /* 設定圖片高度為300px */
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.container-image:hover img {
+    transform: scale(1.05);
+}
+
+/* 視覺特效 - overlay */
+
+.container-image:hover .overlay {
+    top: 10;
+}
+
+/* 搜索框與按鈕 */
+input.form-control {
+    border-radius: 30px;
+}
+
+button.btn-primary {
+    background-color: #f1a44e;
+    border-radius: 30px;
+    padding: 8px 20px;
+}
+
+button.btn-primary:hover {
+    background-color: #e89a45;
+}
+
+/* 視覺分隔線 */
+.thick-line {
+    border-top: 2px solid #ccc;
+}
+
+/* 地圖容器 */
+.ratio-16x9 {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 卡片區塊 */
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 行內區塊 */
+.row {
+    margin-bottom: 30px;
+}
+
+/* 頁面底部 */
+footer {
+    background-color: #4e4e4e;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.text {
+    font-size: 16px;
+    text-align: center;
+    padding: 10px;
+}
