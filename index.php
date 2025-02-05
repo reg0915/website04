@@ -1,3 +1,4 @@
+<?php include_once "api/db.php";?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
         integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="./js/jquery-1.9.1.min.js"></script>
+    <script src="./js/js.js"></script>
 
 </head>
 
@@ -20,7 +23,14 @@
     <!-- 訊息滾動條 -->
     <div class="main-header">
         <marquee behavior="scroll" direction="left">
-            英國原裝進口｜系列櫥櫃 Belsay 靜謐灰【ON SALE】7折起
+            <?php
+    $ads=$Ad->all(['sh'=>1]);
+    foreach($ads as $ad){
+        echo $ad['text'];
+        //echo "&nbsp;&nbsp;&nbsp;&nbsp;";
+        echo str_repeat("&nbsp;",4);
+    }
+?>
         </marquee>
     </div>
 
@@ -66,18 +76,40 @@
             <!-- The slideshow/carousel -->
             <div id="demo2" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner" id="home">
-                    <div class="carousel-item active">
-                        <img src="https://i0.wp.com/www.home33.com.tw/wp-content/uploads/floor001.jpg" alt="Los Angeles"
-                            class="d-block w-100" width="1920" height="1024">
+                    <div style="width:100%; padding:2px; height: 800px;px;">
+                        <div id="mwww" loop="true" style="width:100%; height:100%;">
+
+                        </div>
                     </div>
-                    <div class="carousel-item">
-                        <img src="https://i0.wp.com/www.home33.com.tw/wp-content/uploads/EHL105_%E5%85%8B%E9%9B%B7%E6%96%AF%E9%A0%93%E7%99%BD%E6%A9%A1%E6%83%85%E5%A2%83-scaled.jpg"
-                            alt="Chicago" class="d-block w-100" width="1920" height="1024">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://www.uwood.com.tw/userfiles/case/28620200513154327.jpg" alt="New York"
-                            class="d-block w-100" width="1920" height="1024">
-                    </div>
+                    <script>
+                    var lin = new Array();
+                    <?php 
+                     $mvs=$Mvim->all(['sh'=>1]);
+                     foreach($mvs as $mv){
+                         echo "lin.push('upload/{$mv['img']}');";
+                     }
+                
+                     ?>
+                    var now = 0;
+                    if (lin.length > 1) {
+                        setInterval("ww()", 3000);
+                        //now = 1;
+                    }
+
+                    function ww() {
+                        // console.log("HI");
+                        $("#mwww").html("<embed loop=true src='" + lin[now] +
+                            "' style='width:99%; height:100%;'></embed>")
+                        //$("#mwww").attr("src",lin[now])
+                        now++;
+                        if (now >= lin.length)
+                            now = 0;
+                    }
+
+                    ww();
+                    </script>
+
+
                 </div>
                 <!-- Left and right controls/icons -->
                 <button class="carousel-control-prev" type="button" data-bs-target="#demo2" data-bs-slide="prev">
@@ -286,43 +318,43 @@
 
 
             <script>
-                const imageContainers = document.querySelectorAll('.container-image');
+            const imageContainers = document.querySelectorAll('.container-image');
 
-                imageContainers.forEach(container => {
-                    container.addEventListener('mouseenter', () => {
-                        imageContainers.forEach(item => item.classList.add('hovered'));
-                    });
-                    container.addEventListener('mouseleave', () => {
-                        imageContainers.forEach(item => item.classList.remove('hovered'));
-                    });
+            imageContainers.forEach(container => {
+                container.addEventListener('mouseenter', () => {
+                    imageContainers.forEach(item => item.classList.add('hovered'));
                 });
+                container.addEventListener('mouseleave', () => {
+                    imageContainers.forEach(item => item.classList.remove('hovered'));
+                });
+            });
             </script>
 
 
 
 
             <script>
-                $(document).ready(function () {
+            $(document).ready(function() {
 
-                    $(document).ready(function () {
-                        let prevScrollPos = window.pageYOffset;
-                        const navbar = $('#navbar');
+                $(document).ready(function() {
+                    let prevScrollPos = window.pageYOffset;
+                    const navbar = $('#navbar');
 
-                        $(window).on('scroll', function () {
-                            const currentScrollPos = window.pageYOffset;
+                    $(window).on('scroll', function() {
+                        const currentScrollPos = window.pageYOffset;
 
-                            if (prevScrollPos > currentScrollPos) {
-                                // 滾動向上，顯示 navbar
-                                navbar.css('top', '0');
-                            } else {
-                                // 滾動向下，隱藏 navbar
-                                navbar.css('top', '-80px');
-                            }
-                            prevScrollPos = currentScrollPos;
-                        });
+                        if (prevScrollPos > currentScrollPos) {
+                            // 滾動向上，顯示 navbar
+                            navbar.css('top', '0');
+                        } else {
+                            // 滾動向下，隱藏 navbar
+                            navbar.css('top', '-80px');
+                        }
+                        prevScrollPos = currentScrollPos;
                     });
-
                 });
+
+            });
             </script>
 </body>
 
