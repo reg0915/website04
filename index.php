@@ -164,18 +164,43 @@
                 <div class="row justify-content-center ">
                     <div class="col-2">
                         <div class="container-image">
-                            <img src="https://www.lamett.com.tw/archive/%E7%94%A2%E5%93%81/%E6%B0%B4%E6%98%9F/%E5%90%8D%E8%B4%B5%E5%A4%A7%E7%90%86%E7%9F%B3%E7%B3%BB%E5%88%97/%E5%8D%A1%E6%8B%89%E5%8D%A1%E5%A1%94%E9%87%91-A/%E5%A4%9A%E6%8B%BC.jpg"
-                                alt="Image" class="image">
+                            <?php 
+                    $imgs=$Image->all(['sh'=>1,'type' => 1]);
+                    foreach($imgs as $idx => $img){
+                        echo "<div class='im' id='ssaa{$idx}'>";
+                        echo "<img src='./upload/{$img['img']}' style='width:300px;height:300px;border:3px solid orange'>";
+                        echo "</div>";
+                    }
+
+                        ?>
                             <div class="overlay">
-                                <p class="text">卡拉卡塔金</p>
+                                <p class="text">
+
+                                    <?php
+
+                                     $imgs=$Image->all(['sh'=>1,'type' => 1]);
+                                     foreach($imgs as $img){
+                                         echo $img['text'];
+                                         
+                                         echo str_repeat("&nbsp;",4);
+                                     }
+                                     ?>
+                                </p>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-2">
                         <div class="container-image">
-                            <img src="https://www.lamett.com.tw/archive/%E7%94%A2%E5%93%81/%E6%B0%B4%E6%98%9F/%E7%8F%8D%E7%A8%80%E5%A4%A7%E7%90%86%E7%9F%B3%E7%B3%BB%E5%88%97/%E9%9D%92%E9%87%91%E7%9F%B3%E8%97%8D-A/%E5%A4%9A%E6%8B%BC.jpg"
-                                alt="Image" class="image">
+                            <?php 
+                    $imgs=$Image->all(['sh'=>1,'type' => 2]);
+                    foreach($imgs as $idx => $img){
+                        echo "<div class='im' id='ssaa{$idx}'>";
+                        echo "<img src='./upload/{$img['img']}' style='width:300px;height:300px;border:3px solid orange'>";
+                        echo "</div>";
+                    }
+
+                        ?>
                             <div class="overlay">
                                 <p class="text">青金石藍</p>
                             </div>

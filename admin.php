@@ -89,14 +89,14 @@
     <div class="col">
 
         <?php
-        $do=$_GET['do']??'title';
-        $file="./backend/{$do}.php";
+         $do=$_GET['do']??'title';
+         $file="./backend/{$do}.php";
 
-        if(file_exists($file)){
-            include $file;
-        }else{
-            include "./backend/title.php";
-        }
+         if(file_exists($file)){
+             include $file;
+         }else{
+             include "./backend/title.php";
+         }
         ?>
     </div>
     </div>
@@ -104,6 +104,60 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"
+        integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+
+
+
+    <script>
+    function uploadImage() {
+        let fileInput = document.getElementById('fileInput');
+        let file = fileInput.files[0];
+
+        if (!file) return; // 如果沒有選擇檔案，直接返回
+
+        let formData = new FormData();
+        formData.append("file", file); // 把圖片加入表單
+        formData.append("table", "<?=$do;?>"); // 傳遞 table 參數
+
+        fetch('./api/upload_image.php', {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json()) // 解析 JSON
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('previewImg').src = "./upload/" + data.filename;
+                } else {
+                    alert("上傳失敗：" + data.message);
+                }
+            })
+            .catch(error => {
+                console.error("上傳錯誤:", error);
+                alert("圖片上傳失敗！");
+            });
+    }
+    </script>
 
 </body>
 

@@ -8,7 +8,8 @@
             <table width="100%">
                 <tbody>
                     <tr class="yel">
-                        <td width="70%">產品圖片</td>
+                        <td width="35%">產品圖片</td>
+                        <td width="35%">產品文字</td>
                         <td width="10%">顯示</td>
                         <td width="10%">刪除</td>
                         <td></td>
@@ -26,6 +27,9 @@
                     <tr>
                         <td>
                             <img src="./upload/<?=$row['img'];?>" style="width:100px;height:68px;">
+                        </td>
+                        <td>
+                            <input type="text" name="text[]" value="<?=$row['text'];?>" style="width:95%">
                         </td>
                         <td>
                             <input type="checkbox" name="sh[]" value="<?=$row['id'];?>"
@@ -47,27 +51,7 @@
                 </tbody>
             </table>
             <div class="cent">
-                <?php
 
-                if(($now-1)>0){
-                    $prev=$now-1;
-                    echo "<a href='?do=$do&p=$prev'> < </a>";
-                }
-
-                
-                for($i=1;$i<=$pages;$i++){
-                    $size=($i==$now)?"24px":"16px";
-                    echo "<a href='?do=$do&p=$i' style='font-size:$size'> ";
-                    echo $i;
-                    echo " </a>";
-                }
-
-                if(($now+1)<=$pages){
-                    $next=$now+1;
-                    echo "<a href='?do=$do&p=$next'> > </a>";
-                }
-
-            ?>
             </div>
             <table style="margin-top:40px; width:70%;">
                 <tbody>
