@@ -202,71 +202,69 @@
 
                         ?>
                             <div class="overlay">
-                                <p class="text">青金石藍</p>
+                                <p class="text">
+                                    <?php
+
+                                     $imgs=$Image->all(['sh'=>1,'type' => 2]);
+                                     foreach($imgs as $img){
+                                         echo $img['text'];
+                                         
+                                         echo str_repeat("&nbsp;",4);
+                                     }
+                                     ?>
+                                </p>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-2">
                         <div class="container-image">
-                            <img src="https://www.lamett.com.tw/archive/%E7%94%A2%E5%93%81/%E6%B0%B4%E6%98%9F/%E5%90%8D%E8%B4%B5%E5%A4%A7%E7%90%86%E7%9F%B3%E7%B3%BB%E5%88%97/%E7%BE%A9%E5%A4%A7%E5%88%A9%E9%9B%B2%E7%9F%B3%E7%81%B0/%E5%A4%9A%E6%8B%BC.jpg"
-                                alt="Image" class="image">
+                            <?php 
+                    $imgs=$Image->all(['sh'=>1,'type' => 3]);
+                    foreach($imgs as $idx => $img){
+                        echo "<div class='im' id='ssaa{$idx}'>";
+                        echo "<img src='./upload/{$img['img']}' style='width:300px;height:300px;border:3px solid orange'>";
+                        echo "</div>";
+                    }
+                        ?>
                             <div class="overlay">
-                                <p class="text">格蘭雲天</p>
+                                <p class="text">
+                                    <?php
+
+$imgs=$Image->all(['sh'=>1,'type' => 3]);
+foreach($imgs as $img){
+    echo $img['text'];
+    
+    echo str_repeat("&nbsp;",4);
+}
+?>
+                                </p>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-2">
                         <div class="container-image">
-                            <img src="https://images.pexels.com/photos/220177/pexels-photo-220177.jpeg?auto=compress&cs=tinysrgb&w=600"
-                                alt="Image" class="image">
+                            <?php 
+                    $imgs=$Image->all(['sh'=>1,'type' => 4]);
+                    foreach($imgs as $idx => $img){
+                        echo "<div class='im' id='ssaa{$idx}'>";
+                        echo "<img src='./upload/{$img['img']}' style='width:300px;height:300px;border:3px solid orange'>";
+                        echo "</div>";
+                    }
+                        ?>
                             <div class="overlay">
-                                <p class="text">義大利雲石灰</p>
-                            </div>
+                                <p class="text">
+                                    <?php
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="row justify-content-center ">
-                    <div class="col-2">
-                        <div class="container-image">
-                            <img src="https://www.lamett.com.tw/archive/%E7%94%A2%E5%93%81/%E6%B0%B4%E6%98%9F/%E7%8F%8D%E7%A8%80%E5%A4%A7%E7%90%86%E7%9F%B3%E7%B3%BB%E5%88%97/%E8%97%8D%E8%89%B2%E5%AF%B6%E7%9F%B3-A/%E5%A4%9A%E6%8B%BC.jpg"
-                                alt="Image" class="image">
-                            <div class="overlay">
-                                <p class="text">藍色寶石</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-2">
-                        <div class="container-image">
-                            <img src="https://www.lamett.com.tw/archive/%E7%94%A2%E5%93%81/%E5%A4%A9%E7%8E%8B%E6%98%9F/%E7%95%A2%E5%8D%A1%E7%B4%A2%E7%B3%BB%E5%88%97/%E5%B0%8F%E5%B1%8B%E6%A8%B9%E6%9C%A8/%E5%AE%98%E7%B6%B2-%E5%BA%AD%E5%9C%92%E5%B0%8F%E5%B1%8B_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F%201.png"
-                                alt="Image" class="image">
-                            <div class="overlay">
-                                <p class="text">庭園小屋Ⅱ</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-2">
-                        <div class="container-image">
-                            <img src="https://www.lamett.com.tw/archive/%E7%94%A2%E5%93%81/%E5%A4%A9%E7%8E%8B%E6%98%9F/%E7%95%A2%E5%8D%A1%E7%B4%A2%E7%B3%BB%E5%88%97/%E6%9B%BC%E9%99%80%E6%9E%97/%E5%AE%98%E7%B6%B2-%E6%9B%BC%E9%99%80%E6%9E%97_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F%201.png"
-                                alt="Image" class="image">
-                            <div class="overlay">
-                                <p class="text">曼陀林</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-2">
-                        <div class="container-image">
-                            <img src="https://www.lamett.com.tw/archive/%E7%94%A2%E5%93%81/%E5%A4%A9%E7%8E%8B%E6%98%9F/%E5%84%AA%E5%8B%9D%E7%BE%8E%E5%9C%B0%E6%A3%AE%E6%9E%97%E7%B3%BB%E5%88%97/%E5%9C%8B%E7%8E%8B%E9%87%91%E6%9D%89/%E5%AE%98%E7%B6%B2-%E5%9C%8B%E7%8E%8B%E9%87%91%E5%B1%B1_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F%201.png"
-                                alt="Image" class="image">
-                            <div class="overlay">
-                                <p class="text">國王金杉Ⅱ</p>
+$imgs=$Image->all(['sh'=>1,'type' => 4]);
+foreach($imgs as $img){
+    echo $img['text'];
+    
+    echo str_repeat("&nbsp;",4);
+}
+?>
+                                </p>
                             </div>
 
                         </div>
@@ -277,40 +275,204 @@
                 <div class="row justify-content-center ">
                     <div class="col-2">
                         <div class="container-image">
-                            <img src="https://www.lamett.com.tw/archive/%E7%94%A2%E5%93%81/%E5%A4%A9%E7%8E%8B%E6%98%9F/%E5%84%AA%E5%8B%9D%E7%BE%8E%E5%9C%B0%E6%A3%AE%E6%9E%97%E7%B3%BB%E5%88%97/%E5%8A%A0%E5%B7%9E%E9%87%91%E6%9C%A8/%E5%AE%98%E7%B6%B2-%E5%8A%A0%E5%B7%9E%E9%87%91%E6%9C%A8_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F%201.png"
-                                alt="Image" class="image">
+                            <?php 
+                    $imgs=$Image->all(['sh'=>1,'type' => 5]);
+                    foreach($imgs as $idx => $img){
+                        echo "<div class='im' id='ssaa{$idx}'>";
+                        echo "<img src='./upload/{$img['img']}' style='width:300px;height:300px;border:3px solid orange'>";
+                        echo "</div>";
+                    }
+                        ?>
                             <div class="overlay">
-                                <p class="text">加州金木Ⅱ</p>
+                                <p class="text">
+                                    <?php
+                                $imgs=$Image->all(['sh'=>1,'type' => 5]);
+foreach($imgs as $img){
+    echo $img['text'];
+    
+    echo str_repeat("&nbsp;",4);
+}
+?>
+                                </p>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-2">
                         <div class="container-image">
-                            <img src="https://www.lamett.com.tw/archive/%E7%94%A2%E5%93%81/%E5%A4%A9%E7%8E%8B%E6%98%9F/%E5%84%AA%E5%8B%9D%E7%BE%8E%E5%9C%B0%E6%A3%AE%E6%9E%97%E7%B3%BB%E5%88%97/%E5%9C%8B%E7%8E%8B%E9%9B%AA%E6%9D%89/%E5%AE%98%E7%B6%B2-%E5%9C%8B%E7%8E%8B%E9%9B%AA%E6%9D%89_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F%201.png"
-                                alt="Image" class="image">
+                            <?php 
+                    $imgs=$Image->all(['sh'=>1,'type' => 6]);
+                    foreach($imgs as $idx => $img){
+                        echo "<div class='im' id='ssaa{$idx}'>";
+                        echo "<img src='./upload/{$img['img']}' style='width:300px;height:300px;border:3px solid orange'>";
+                        echo "</div>";
+                    }
+                        ?>
                             <div class="overlay">
-                                <p class="text">國王雪杉Ⅱ</p>
+                                <p class="text">
+                                    <?php
+                                $imgs=$Image->all(['sh'=>1,'type' => 6]);
+foreach($imgs as $img){
+    echo $img['text'];
+    
+    echo str_repeat("&nbsp;",4);
+}
+?>
+                                </p>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-2">
                         <div class="container-image">
-                            <img src="https://www.lamett.com.tw/archive/%E7%94%A2%E5%93%81/%E5%A4%A9%E7%8E%8B%E6%98%9F/%E5%84%AA%E5%8B%9D%E7%BE%8E%E5%9C%B0%E6%A3%AE%E6%9E%97%E7%B3%BB%E5%88%97/%E8%9D%B4%E8%9D%B6%E7%B1%B3%E6%9D%89/%E5%AE%98%E7%B6%B2-%E8%9D%B4%E8%9D%B6%E7%B1%B3%E6%9D%89-02.png"
-                                alt="Image" class="image">
+                            <?php 
+                    $imgs=$Image->all(['sh'=>1,'type' => 7]);
+                    foreach($imgs as $idx => $img){
+                        echo "<div class='im' id='ssaa{$idx}'>";
+                        echo "<img src='./upload/{$img['img']}' style='width:300px;height:300px;border:3px solid orange'>";
+                        echo "</div>";
+                    }
+                        ?>
                             <div class="overlay">
-                                <p class="text">蝴蝶米杉Ⅱ</p>
+                                <p class="text">
+                                    <?php
+                                $imgs=$Image->all(['sh'=>1,'type' => 7]);
+foreach($imgs as $img){
+    echo $img['text'];
+    
+    echo str_repeat("&nbsp;",4);
+}
+?>
+                                </p>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-2">
                         <div class="container-image">
-                            <img src="https://www.lamett.com.tw/archive/%E7%94%A2%E5%93%81/%E5%A4%A9%E7%8E%8B%E6%98%9F/%E5%84%AA%E5%8B%9D%E7%BE%8E%E5%9C%B0%E6%A3%AE%E6%9E%97%E7%B3%BB%E5%88%97/%E8%9D%B4%E8%9D%B6%E6%9D%89/%E8%9D%B4%E8%9D%B6%E6%9D%89_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F%201.png"
-                                alt="Image" class="image">
+                            <?php 
+                    $imgs=$Image->all(['sh'=>1,'type' => 8]);
+                    foreach($imgs as $idx => $img){
+                        echo "<div class='im' id='ssaa{$idx}'>";
+                        echo "<img src='./upload/{$img['img']}' style='width:300px;height:300px;border:3px solid orange'>";
+                        echo "</div>";
+                    }
+                        ?>
                             <div class="overlay">
-                                <p class="text">蝴蝶杉Ⅱ</p>
+                                <p class="text">
+                                    <?php
+                                $imgs=$Image->all(['sh'=>1,'type' => 8]);
+foreach($imgs as $img){
+    echo $img['text'];
+    
+    echo str_repeat("&nbsp;",4);
+}
+?>
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="row justify-content-center ">
+                    <div class="col-2">
+                        <div class="container-image">
+                            <?php 
+                    $imgs=$Image->all(['sh'=>1,'type' => 9]);
+                    foreach($imgs as $idx => $img){
+                        echo "<div class='im' id='ssaa{$idx}'>";
+                        echo "<img src='./upload/{$img['img']}' style='width:300px;height:300px;border:3px solid orange'>";
+                        echo "</div>";
+                    }
+                        ?>
+                            <div class="overlay">
+                                <p class="text">
+                                    <?php
+                                $imgs=$Image->all(['sh'=>1,'type' => 9]);
+foreach($imgs as $img){
+    echo $img['text'];
+    
+    echo str_repeat("&nbsp;",4);
+}
+?>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-2">
+                        <div class="container-image">
+                            <?php 
+                    $imgs=$Image->all(['sh'=>1,'type' => 10]);
+                    foreach($imgs as $idx => $img){
+                        echo "<div class='im' id='ssaa{$idx}'>";
+                        echo "<img src='./upload/{$img['img']}' style='width:300px;height:300px;border:3px solid orange'>";
+                        echo "</div>";
+                    }
+                        ?>
+                            <div class="overlay">
+                                <p class="text">
+                                    <?php
+                                $imgs=$Image->all(['sh'=>1,'type' => 10]);
+foreach($imgs as $img){
+    echo $img['text'];
+    
+    echo str_repeat("&nbsp;",4);
+}
+?>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-2">
+                        <div class="container-image">
+                            <?php 
+                    $imgs=$Image->all(['sh'=>1,'type' => 11]);
+                    foreach($imgs as $idx => $img){
+                        echo "<div class='im' id='ssaa{$idx}'>";
+                        echo "<img src='./upload/{$img['img']}' style='width:300px;height:300px;border:3px solid orange'>";
+                        echo "</div>";
+                    }
+                        ?>
+                            <div class="overlay">
+                                <p class="text">
+                                    <?php
+                                $imgs=$Image->all(['sh'=>1,'type' => 11]);
+foreach($imgs as $img){
+    echo $img['text'];
+    
+    echo str_repeat("&nbsp;",4);
+}
+?>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-2">
+                        <div class="container-image">
+                            <?php 
+                    $imgs=$Image->all(['sh'=>1,'type' => 12]);
+                    foreach($imgs as $idx => $img){
+                        echo "<div class='im' id='ssaa{$idx}'>";
+                        echo "<img src='./upload/{$img['img']}' style='width:300px;height:300px;border:3px solid orange'>";
+                        echo "</div>";
+                    }
+                        ?>
+                            <div class="overlay">
+                                <p class="text">
+                                    <?php
+                                $imgs=$Image->all(['sh'=>1,'type' => 12]);
+foreach($imgs as $img){
+    echo $img['text'];
+    
+    echo str_repeat("&nbsp;",4);
+}
+?>
+                                </p>
                             </div>
 
                         </div>
