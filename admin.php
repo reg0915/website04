@@ -75,6 +75,9 @@
                     <li class="nav-item">
                         <a class="nav-link highlight-hover" href="?do=ad">動態文字廣告管理</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link highlight-hover" href="?do=about">公司介紹內容</a>
+                    </li>
                 </ul>
                 <form class="d-flex">
                     <input class="form-control me-2" type="text" placeholder="Search">
@@ -100,7 +103,18 @@
         ?>
     </div>
     </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col"></div>
 
+
+
+
+
+
+        </div>
+
+    </div>
 
 
 

@@ -11,8 +11,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
         integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="./js/jquery-1.9.1.min.js"></script>
     <script src="./js/js.js"></script>
+
 
 </head>
 
@@ -44,7 +48,7 @@
             <div class="collapse navbar-collapse" id="mynavbar">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link highlight-hover" href="#home">首頁</a>
+                        <a class="nav-link highlight-hover" href="#home"><i class="fa-solid fa-house"></i>首頁</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link highlight-hover" href="#page1">關於</a>
@@ -132,11 +136,14 @@
                         <h2 class="text-center ">關於地匠工坊</h2>
                         <br>
                         <p>
-                            地匠工坊專注於提供高品質的坐地板產品，無論是住宅、商業空間還是特殊場合，我們的坐地板都能為您的環境帶來舒適與美觀。我們以精湛的工藝和優質的材料為基礎，致力於創造出適合各種風格與需求的坐地板，並結合傳統手工藝與現代設計元素，為顧客提供個性化、耐用且具有藝術感的地板選擇。
-
-                            地匠工坊的坐地板系列，擁有多種款式與顏色選擇，無論是自然木紋還是現代化的簡約風，都能與您的空間完美融合。專業的安裝團隊確保每一塊地板都精確無誤地鋪設，並提供長期的保養與售後服務，讓您的每一次使用都感受到質感與舒適。
-
-                            選擇地匠工坊，就是選擇一個專業且用心的夥伴，為您的居家或商業空間打造一個溫馨且具設計感的環境。我們相信，地板不僅是空間的基礎，更是舒適生活的一部分，讓我們一起為您的空間帶來更多可能！
+                            <?php
+    $abouts=$About->all(['sh'=>1]);
+    foreach($abouts as $about){
+        echo $about['text'];
+        //echo "&nbsp;&nbsp;&nbsp;&nbsp;";
+        echo str_repeat("&nbsp;",4);
+    }
+?>
                         </p>
                     </div>
                     <div class="col-6 ">

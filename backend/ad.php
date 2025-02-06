@@ -1,6 +1,4 @@
-<div class="di"
-    style="height:540px; border:#999 1px solid; width:76.5%; margin:2px 0px 0px 0px; float:left; position:relative; left:20px;">
-    <!--正中央-->
+<div class="di" style="height:800px; ; width:76.5%; margin:2px 0px 0px 0px; float:left; position:relative; left:150px;">
     <?php include_once "logout.php";?>
     <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
         <p class="t cent botli">動態文字廣告管理</p>
@@ -18,10 +16,11 @@
                     ?>
                     <tr>
                         <td>
-                            <input type="text" name="text[]" value="<?=$row['text'];?>" style="width:95%">    
+                            <input type="text" name="text[]" value="<?=$row['text'];?>" style="width:95%">
                         </td>
                         <td>
-                            <input type="checkbox" name="sh[]" value="<?=$row['id'];?>" <?=($row['sh']==1)?'checked':'';?>>
+                            <input type="checkbox" name="sh[]" value="<?=$row['id'];?>"
+                                <?=($row['sh']==1)?'checked':'';?>>
                         </td>
                         <td>
                             <input type="checkbox" name="del[]" value="<?=$row['id'];?>">
@@ -39,7 +38,8 @@
                         <td width="200px">
                             <input type="button"
                                 onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;./modal/<?=$do;?>.php?table=<?=$do;?>&#39;)"
-                                value="新增動態文字廣告"></td>
+                                value="新增動態文字廣告">
+                        </td>
                         <td class="cent">
                             <input type="hidden" name="table" value="<?=$do;?>">
                             <input type="submit" value="修改確定">
@@ -52,5 +52,3 @@
         </form>
     </div>
 </div>
-
-
