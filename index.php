@@ -18,11 +18,20 @@
     <script src="./js/js.js"></script>
 
 
+
 </head>
 
 <body>
+       <!-- nav -->
+       <div id="cover" style="display:none; ">
+        <div id="coverr">
+            <a style="position:absolute; right:3px; top:4px; cursor:pointer; z-index:9999;"
+                onclick="cl(&#39;#cover&#39;)">X</a>
+            <div id="cvr" style="position:absolute; width:99%; height:100%; margin:auto; z-index:9898;"></div>
+        </div>
+    </div>
 
-    <!-- nav -->
+  
 
     <!-- 訊息滾動條 -->
     <div class="main-header">
@@ -30,6 +39,7 @@
             <?php
     $ads=$Ad->all(['sh'=>1]);
     foreach($ads as $ad){
+
         echo $ad['text'];
         //echo "&nbsp;&nbsp;&nbsp;&nbsp;";
         echo str_repeat("&nbsp;",4);
@@ -64,6 +74,28 @@
             </div>
         </div>
     </nav>
+
+
+    <table style=" width:70%; bor; border: #000;">
+                <tbody>
+                    <tr>
+                        <td width="200px">
+                            <input type="button"
+                                onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;./modal/login.php?table=login&#39;)"
+                                value="新增網站標題圖片">
+
+                        </td>
+                        <td class="cent">
+                            <input type="hidden" name="table" value="<?=$do;?>">
+                            <input type="submit" value="修改確定">
+                            <input type="reset" value="重置">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
 
 
 
@@ -550,6 +582,8 @@ foreach($imgs as $img){
 
             });
             </script>
+
+
 </body>
 
 </html>
