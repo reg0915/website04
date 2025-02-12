@@ -1,34 +1,61 @@
-<?php 
+<fieldset style="width:50%;margin:auto;">
+    <legend>會員登入</legend>
+    <table>
+        <tr>
+            <td>帳號管理</td>
+            <td><input type="text" name="acc" id="acc"></td>
+        </tr>
+        <tr>
+            <td>密碼</td>
+            <td><input type="password" name="pw" id="pw"></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="登入" onclick="login()">
+                <input type="reset" value="清除" onclick="resetForm()">
+            </td>
+            <td>
+                <a href="?do=forgot">忘記密碼</a>
+                <a href="?do=reg">尚未註冊</a>
+            </td>
+        </tr>
+    </table>
+</fieldset>
 
-if(isset($_SESSION['login'])){
-	to("admin.php");
-	exit();	
+
+<script>
+    function login(){
+    let admin={
+        acc:$("#acc").val(),
+        pw:$("#pw").val(),
+    }
+    
+        $.get("/api/chk_acc.php",{acc:admin.acc},(res)=>{
+            console.log("chk acc => ",res)
+            if(parseInt(res)==0){
+                alert("查無帳號")
+                resetForm()
+            }else{
+                $.post("/api/chk_pw.php",admin,(res)=>{
+                    console.log("login => ",res)
+                    if(parseInt(res)==1){
+                        if(admin.acc=='admin'){
+                            location.href='admin.php';
+                        }else{
+                            location.href='index.php';
+                        }
+                    }else{
+                        alert("密碼錯誤")
+                        resetForm()
+                    }
+                })
+            }
+        })
+    
 }
 
-if(isset($_POST['acc'])){
-	$row=$Admin->find(['acc'=>$_POST['acc'],'pw'=>$_POST['ps']]);
-
-	if(!empty($row)){
-		$_SESSION['login']=1;
-		to("admin.php");
-	}else{
-		echo "<script>alert('帳號或密碼錯誤')</script>";
-	}
-
+function resetForm(){
+    $("#acc").val("")
+    $("#pw").val("")
 }
-?>
-
-<div class="di"
-    style="height:540px; border:#999 1px solid; width:53.2%; margin:2px 0px 0px 0px; float:left; position:relative; left:20px;">
-    <marquee scrolldelay="120" direction="left" style="position:absolute; width:100%; height:40px;">
-    </marquee>
-    <div style="height:32px; display:block;"></div>
-    <!--正中央-->
-    <form action="api/insert.php" method="post" enctype="multipart/form-data">
-        <p class="t botli">管理員登入區</p>
-        <p class="cent">帳號 ： <input name="acc" autofocus="" type="text"></p>
-        <p class="cent">密碼 ： <input name="ps" type="password"></p>
-        <input type="hidden" name="table" value="<?=$_GET['table'];?>">
-        <p class="cent"><input value="送出" type="submit"><input type="reset" value="清除"></p>
-    </form>
-</div>
+</script>

@@ -31,3 +31,40 @@ if(isset($_POST['acc'])){
         <p class="cent"><input value="送出" type="submit"><input type="reset" value="清除"></p>
     </form>
 </div>
+
+<script>
+
+function login(){
+    let user={
+        acc:$("#acc").val(),
+        pw:$("#pw").val(),
+    }
+    
+        $.get("./api/chk_acc.php",{acc:user.acc},(res)=>{
+            console.log("chk acc => ",res)
+            if(parseInt(res)==0){
+                alert("查無帳號")
+                resetForm()
+            }else{
+                $.post("./api/chk_pw.php",user,(res)=>{
+                    console.log("login => ",res)
+                    if(parseInt(res)==1){
+                        if(user.acc=='admin'){
+                            location.href='admin.php';
+                        }else{
+                            location.href='index.php';
+                        }
+                    }else{
+                        alert("密碼錯誤")
+                        resetForm()
+                    }
+                })
+            }
+        })
+    
+}
+
+function resetForm(){
+    $("#acc").val("")
+    $("#pw").val("")
+}    
